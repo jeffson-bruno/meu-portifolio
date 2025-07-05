@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { FaAws, FaJsSquare, FaNodeJs, FaPhp, FaReact, FaVuejs, FaJava } from 'react-icons/fa'
 import { SiTailwindcss, SiKotlin } from 'react-icons/si'
+import ProjectsSection from '../components/ProjectsSection'
 
 export default function Home() {
   return (
@@ -111,6 +112,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Seção Projetos */}
+      <ProjectsSection />
     </main>
   )
 }
+
+
+
