@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import { FaAws, FaJsSquare, FaNodeJs, FaPhp, FaReact, FaVuejs, FaJava } from 'react-icons/fa'
+import { SiTailwindcss, SiKotlin } from 'react-icons/si'
 
 export default function Home() {
   return (
@@ -61,6 +63,51 @@ export default function Home() {
             <p>
               Sou apaixonado por resolver problemas e sempre busco aprender novas tecnologias e metodologias para me aprimorar continuamente na área de desenvolvimento.
             </p>
+          </div>
+        </div>
+      </section>
+      {/* Seção Tecnologias */}
+      <section id="tecnologias" className="max-w-5xl mx-auto py-16 px-6">
+        <h2 className="text-3xl font-bold mb-8 border-b-4 border-primary inline-block">
+          Tecnologias
+        </h2>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 text-center">
+          <div className="flex flex-col items-center space-y-2">
+            <FaVuejs size={48} color="#42b883" />
+            <span>Vue.js</span>
+          </div>
+          <div className="flex flex-col items-center space-y-2">
+            <FaJsSquare size={48} color="#f7df1e" />
+            <span>JavaScript</span>
+          </div>
+          <div className="flex flex-col items-center space-y-2">
+            <FaPhp size={48} color="#777bb3" />
+            <span>PHP</span>
+          </div>
+          <div className="flex flex-col items-center space-y-2">
+            <FaNodeJs size={48} color="#339933" />
+            <span>Node.js</span>
+          </div>
+          <div className="flex flex-col items-center space-y-2">
+            <FaReact size={48} color="#61dafb" />
+            <span>React</span>
+          </div>
+          <div className="flex flex-col items-center space-y-2">
+            <SiKotlin size={48} color="#0095D5" />
+            <span>Kotlin</span>
+          </div>
+          <div className="flex flex-col items-center space-y-2">
+            <FaJava size={48} color="#007396" />
+            <span>Java</span>
+          </div>
+          <div className="flex flex-col items-center space-y-2">
+            <FaAws size={48} color="#FF9900" />
+            <span>AWS</span>
+          </div>
+          <div className="flex flex-col items-center space-y-2">
+            <SiTailwindcss size={48} color="#38bdf8" />
+            <span>Tailwind CSS</span>
           </div>
         </div>
       </section>
