@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { FiCode } from 'react-icons/fi'
 
 const Header = () => {
   const navItems = [
@@ -12,9 +13,12 @@ const Header = () => {
   ]
 
   return (
-    <header className="fixed top-0 w-full bg-dark z-50 shadow-md">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-primary">Jeffson.dev</h1>
+    <header className="bg-dark text-white py-6 shadow-md border-b border-primary">
+      <div className="container mx-auto px-6 flex justify-between items-center">
+        <div className="flex items-center gap-2 text-2xl font-bold">
+          <FiCode size={28} className="text-primary" />
+            Jeffson Bruno
+        </div>
 
         <nav className="space-x-6 hidden md:flex">
           {navItems.map((item) => (
