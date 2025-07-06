@@ -27,7 +27,7 @@ export default function Home() {
   }, [])
 
   if (loading) return <Loader />
-  
+
   return (
     <main className="bg-dark text-white">
       {/* Seção Inicio */}
