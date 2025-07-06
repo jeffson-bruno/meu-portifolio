@@ -6,46 +6,46 @@ import { SiTailwindcss, SiKotlin } from 'react-icons/si'
 import ProjectsSection from '../components/ProjectsSection'
 import ContatoDireto from '../components/ContatoDireto'
 import Footer from '../components/Footer'
-import { motion } from 'framer-motion'
+import BackToTopButton from '../components/BackToTopButton'
+import FadeInSection from '../components/FadeInSection'
+import { useEffect, useState } from 'react'
+import Loader from '../components/Loader'
 
 
 
 
 export default function Home() {
-  return (
- <main className="bg-dark text-white">
 
-     
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false)
+    }, 1500) // 1.5s delay
+
+    return () => clearTimeout(timeout)
+  }, [])
+
+  if (loading) return <Loader />
+  
+  return (
+    <main className="bg-dark text-white">
       {/* Seção Inicio */}
         <div className="bg-gray-900">
           <section className="min-h-screen text-white flex flex-col md:flex-row items-center justify-between px-6 md:px-20 pt-10 pb-20 mt-[-30px]">
 
             {/* Texto à esquerda */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              style={{}}
-              // @ts-expect-error: className is valid for motion.div
-              className="text-center md:text-left max-w-xl"
-            >
+            <FadeInSection className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
                 Olá! 👋🏽 Sou Jeffson
               </h1>
               <p className="text-xl">
                 <span className="text-primary font-semibold">Front-end Developer</span>
               </p>
-            </motion.div>
+            </FadeInSection>
 
             {/* Foto à direita */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              style={{ marginTop: '2.5rem' }} // fallback for mt-10
-              // @ts-ignore
-              className="md:mt-0"
-            >
+            <FadeInSection className="max-w-3xl mx-auto text-center">
               <div className="rounded-full overflow-hidden w-80 h-80 md:w-[380px] md:h-[380px] border-4 border-primary shadow-lg">
                 <Image
                   src="/imgs/perfil.jpg"
@@ -56,57 +56,44 @@ export default function Home() {
                   priority
                 />
               </div>
-            </motion.div>
+            </FadeInSection>
           </section>
         </div>
 
       {/* Seção Sobre Mim */}
       <section id="sobre" className="max-w-4xl mx-auto py-16 px-6">
-        <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-        className="max-w-3xl mx-auto text-center"
-        >
+        <FadeInSection delay={0.1} className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8 border-b-4 border-primary inline-block">
             Sobre Mim
           </h2>
-        </motion.div>
+        </FadeInSection>
 
           <div className="space-y-8 text-lg leading-relaxed">
-            <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center"
-            >
             <div>
-              <h3 className="text-xl font-semibold mb-2">Experiência e Tecnologias</h3>
-              <p>
-                Estudo desenvolvimento desde 2020, entrei na faculdade de Análise e Desenvolvimento de Sistemas em 2021, onde me formei em 2023.  
-                Atuo como freelancer desde 2024, utilizando principalmente Vue.js, Javascript, Node.js, PHP e Blade.  
-                Estou expandindo meus conhecimentos para React, React Native, Java, Kotlin e AWS.
-              </p>
-            </div>
-          </motion.div>
+              <FadeInSection delay={0.2} className="max-w-3xl mx-auto text-center">
+                <h3 className="text-xl font-semibold mb-2">Experiência e Tecnologias</h3>
+              </FadeInSection>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center"
-          >
+              <FadeInSection delay={0.3} className="max-w-3xl mx-auto text-left">
+                <p>
+                  Estudo desenvolvimento desde 2020, entrei na faculdade de Análise e Desenvolvimento de Sistemas em 2021, onde me formei em 2023.  
+                  Atuo como freelancer desde 2024, utilizando principalmente Vue.js, Javascript, Node.js, PHP e Blade.  
+                  Estou expandindo meus conhecimentos para React, React Native, Java, Kotlin e AWS.
+                </p>
+              </FadeInSection>
+            </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-2">Ferramentas e Boas Práticas</h3>
-              <p>
-                Tenho experiência com testes de software, integração contínua e mensageria, buscando sempre aplicar boas práticas no desenvolvimento para garantir qualidade e manutenibilidade dos projetos.
-              </p>
+              <FadeInSection delay={0.4} className="max-w-3xl mx-auto text-center">
+                <h3 className="text-xl font-semibold mb-2">Ferramentas e Boas Práticas</h3>
+              </FadeInSection>
+
+              <FadeInSection delay={0.5} className="max-w-3xl mx-auto text-left">
+                <p>
+                  Tenho experiência com testes de software, integração contínua e mensageria, buscando sempre aplicar boas práticas no desenvolvimento para garantir qualidade e manutenibilidade dos projetos.
+                </p>
+              </FadeInSection>
             </div>
-          </motion.div>
           </div>
       </section>
 
@@ -167,6 +154,8 @@ export default function Home() {
 
       {/* Seção Footer */}
       <Footer />
+
+      <BackToTopButton />
       
     </main>
   )
