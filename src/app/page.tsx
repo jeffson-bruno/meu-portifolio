@@ -40,7 +40,7 @@ export default function Home() {
                 Olá! 👋🏽 Sou Jeffson
               </h1>
               <p className="text-xl">
-                <span className="text-primary font-semibold">Front-end Developer</span>
+                <span className="text-primary font-semibold">Back-End Developer</span> com experiência em <span className="text-primary font-semibold">Vue.js</span>, <span className="text-primary font-semibold">JavaScript</span>, <span className="text-primary font-semibold">PHP</span> e <span className="text-primary font-semibold">Laravel</span>.
               </p>
             </FadeInSection>
 
