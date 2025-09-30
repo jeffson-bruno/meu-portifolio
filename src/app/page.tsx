@@ -10,6 +10,7 @@ import BackToTopButton from '../components/BackToTopButton'
 import FadeInSection from '../components/FadeInSection'
 import { useEffect, useState } from 'react'
 import Loader from '../components/Loader'
+import { Typewriter } from 'react-simple-typewriter'
 
 
 
@@ -35,14 +36,23 @@ export default function Home() {
           <section className="min-h-screen text-white flex flex-col md:flex-row items-center justify-between px-6 md:px-20 pt-10 pb-20 mt-[-30px]">
 
             {/* Texto à esquerda */}
-            <FadeInSection className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Olá! 👋🏽 Sou Jeffson
-              </h1>
-              <p className="text-xl">
-                <span className="text-primary font-semibold">Back-End Developer</span> com experiência em <span className="text-primary font-semibold">Vue.js</span>, <span className="text-primary font-semibold">JavaScript</span>, <span className="text-primary font-semibold">PHP</span> e <span className="text-primary font-semibold">Laravel</span>.
-              </p>
-            </FadeInSection>
+          <FadeInSection className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <Typewriter
+                words={['Olá! 👋🏽 Sou Jeffson']}
+                loop={false}
+                cursor
+                cursorStyle="|"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+            </h1>
+
+            <p className="text-xl">
+              <span className="text-primary font-semibold">Desenvolvedor Back-End</span> focado em <span className="text-primary font-semibold">PHP</span>, <span className="text-primary font-semibold">Laravel</span> e <span className="text-primary font-semibold">Blade</span>, com experiência no desenvolvimento de aplicações completas e escaláveis utilizando <span className="text-primary font-semibold">Vue.js</span> no front-end.
+            </p>
+          </FadeInSection>
 
             {/* Foto à direita */}
             <FadeInSection className="max-w-3xl mx-auto text-center">
@@ -75,12 +85,24 @@ export default function Home() {
               </FadeInSection>
 
               <FadeInSection delay={0.3} className="max-w-3xl mx-auto text-left">
-                <p>
-                  Estudo desenvolvimento desde 2020, entrei na faculdade de Análise e Desenvolvimento de Sistemas em 2021, onde me formei em 2023.  
-                  Atuo como freelancer desde 2024, utilizando principalmente Vue.js, Javascript, Node.js, PHP e Blade.  
-                  Estou expandindo meus conhecimentos para React, React Native, Java, Kotlin e AWS.
-                </p>
-              </FadeInSection>
+                  <p>
+                    Estudo desenvolvimento desde 2020 e me formei em <strong>Análise e Desenvolvimento de Sistemas</strong> pela Estácio em 2023. Desde então, atuo como <strong>freelancer</strong>, desenvolvendo sistemas completos com foco no back-end, utilizando principalmente <strong>PHP, Laravel, Blade</strong> e <strong>Vue.js</strong>.
+                  </p>
+                  <br />
+                  <p>
+                    Entre os projetos que desenvolvi, destaco:
+                    <ul className="list-disc list-inside mt-2 space-y-1">
+                      <li><strong>Construloc</strong> — Sistema de gestão de locações com cadastro de clientes, controle de aluguéis e geração de comprovantes (Laravel + Blade).</li>
+                      <li><strong>Sistema de Vendas</strong> — Controle simples de clientes, parcelamento de compras e gerenciamento básico de vendas (Laravel).</li>
+                      <li><strong>Gestão de Clínica Médica</strong> (em desenvolvimento) — Sistema completo com agendamento, cadastro de pacientes e médicos, usando <strong>Laravel no back-end</strong> e <strong>Vue.js no front-end</strong>.</li>
+                    </ul>
+                  </p>
+                  <br />
+                  <p>
+                    Atualmente também estou expandindo meus conhecimentos em <strong>React</strong>, <strong>React Native</strong>, <strong>Kotlin</strong>, <strong>AWS</strong> e <strong>Java</strong>, buscando sempre evoluir como desenvolvedor e entregar soluções de alta qualidade.
+                  </p>
+                </FadeInSection>
+
             </div>
 
             <div>
