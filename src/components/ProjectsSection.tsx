@@ -2,36 +2,10 @@
 
 import ProjectCard from './ProjectCard'
 import { motion } from 'framer-motion'
+import { projects } from '../data/projects'
 
-type MotionDivProps = React.ComponentPropsWithoutRef<typeof motion.div> & { className?: string };
-
-const MotionDiv: React.FC<MotionDivProps> = (props) => (
-  <motion.div {...props} />
-)
-
-const projetos = [
-  {
-    image: '/projetos/projeto1.jpg',
-    name: 'Consulta Clima',
-    description: 'Aplicação web para gerenciamento de pedidos e estoque.',
-    technologies: ['JavaScript', 'HTML5', 'CSS3'],
-    link: 'consulta-clima-tau.vercel.app/',
-  },
-  {
-    image: '/projetos/projeto2.jpg',
-    name: 'iMovi',
-    description: 'Dashboard moderno com gráficos, estatísticas e controle de usuários.',
-    technologies: ['Bootstrap', 'HTML5', 'CSS3'],
-    link: 'jeff-desv.github.io/iMovi/',
-  },
-  {
-    image: '/projetos/projeto3.jpg',
-    name: 'Landing Page',
-    description: 'Página institucional responsiva com integração de formulário.',
-    technologies: ['Vue.js', 'Tailwind CSS'],
-    link: 'https://github.com/seuusuario/projeto3',
-  },
-]
+type MotionDivProps = React.ComponentPropsWithoutRef<typeof motion.div> & { className?: string }
+const MotionDiv: React.FC<MotionDivProps> = (props) => <motion.div {...props} />
 
 export default function ProjectsSection() {
   return (
@@ -44,11 +18,20 @@ export default function ProjectsSection() {
         <MotionDiv
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.5 }}
           className="flex overflow-x-auto gap-6 pb-4 scrollbar-thin scrollbar-thumb-primary scrollbar-track-transparent"
+          aria-label="Lista de projetos"
         >
-          {projetos.map((projeto, index) => (
-            <ProjectCard key={index} {...projeto} />
+          {projects.map((p) => (
+            <ProjectCard
+              key={p.slug}
+              slug={p.slug}
+              image={p.images?.[0]?.src || '/imgs/projetos/placeholder.png'}
+              name={p.name}
+              description={p.description}
+              technologies={p.technologies}
+            />
           ))}
         </MotionDiv>
       </div>
